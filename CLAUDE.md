@@ -159,6 +159,25 @@ Táto appka sa embeduje do cudzej stránky, takže:
   pridaj mu rovnaký reset. `table`/`thead`/`tbody`/`tr`/`th`/`td`/`select`/
   `option`/`label`/`ul`/`strong` sú overené (kompasio.sk ich resetuje len na
   neškodné `border/margin/padding:0`, žiadny `float`/`position` prekvapenie).
+- **Medzera nad embedom na kompasio.sk (vyriešené mimo tohto repa).** To isté
+  plošné `section { padding: 100px 0; }` spôsobovalo aj ~200px medzeru medzi
+  CMS nadpisom článku a naším `#dashboard` — dve ich vlastné `<section>`
+  (hero banner nad obsahom + `#inner_pages` wrapper okolo obsahu) majú tento
+  padding hneď vedľa seba. Toto **nie je v našom kóde** — oprava je priamo v
+  HTML článku v CMS (WYSIWYG, "zdrojový kód"), pridaním `<style>` bloku pred
+  embed:
+  ```html
+  <style>
+    #inner_pages { padding-top: 20px; }
+    section.listing_detail_header { padding-bottom: 20px; }
+  </style>
+  <div id="dashboard">&nbsp;</div>
+  <link href="https://modra-hliadka.github.io/data-o-autizme/assets/app.css" rel="stylesheet" />
+  <script src="https://modra-hliadka.github.io/data-o-autizme/assets/app.js"></script>
+  ```
+  ID/trieda selektor prebije holý `section` bez `!important`. Ak sa embed do
+  kompasio.sk niekedy zakladá znova od nuly, treba tento `<style>` blok
+  pridať späť spolu s `<div id="dashboard">` — inak sa medzera vráti.
 
 ## Build
 
