@@ -1,53 +1,37 @@
 import { useState } from 'react'
-import summaryByYear from '../data/summary.json'
-import ageDistributionByYear from '../data/ageDistribution.json'
-import regionDistributionByYear from '../data/regionDistribution.json'
-import diagnosisStructureByYear from '../data/diagnosisStructure.json'
-import insuranceHistory from '../data/insuranceHistory.json'
-import YearToggle from './components/YearToggle.jsx'
-import KpiCards from './components/KpiCards.jsx'
-import TrendChart from './components/TrendChart.jsx'
+import TabNav from './components/TabNav.jsx'
+import OverviewTab from './components/OverviewTab.jsx'
+import InsurersTab from './components/InsurersTab.jsx'
+import RegionsTab from './components/RegionsTab.jsx'
 import AgeStructureChart from './components/AgeStructureChart.jsx'
-import AgeChart from './components/AgeChart.jsx'
-import RegionChart from './components/RegionChart.jsx'
-import DiagnosisChart from './components/DiagnosisChart.jsx'
+import DiagnosesTab from './components/DiagnosesTab.jsx'
 import './dashboard.css'
 
-const YEARS = Object.keys(summaryByYear).sort().reverse()
+const TABS = [
+  { id: 'prehlad', label: 'Prehľad', Component: OverviewTab },
+  { id: 'poistovne', label: 'Poisťovne', Component: InsurersTab },
+  { id: 'kraje', label: 'Kraje', Component: RegionsTab },
+  { id: 'vek', label: 'Veková štruktúra', Component: AgeStructureChart },
+  { id: 'diagnozy', label: 'Diagnózy', Component: DiagnosesTab },
+]
 
 export default function App() {
-  const [year, setYear] = useState(YEARS[0])
+  const [activeTab, setActiveTab] = useState(TABS[0].id)
+  const ActivePanel = TABS.find((tab) => tab.id === activeTab).Component
 
   return (
     <>
-      <TrendChart years={insuranceHistory.years} insurers={insuranceHistory.insurers} />
-
-      <AgeStructureChart />
-
       <header className="dashboard__header">
-        <h1 className="dashboard__title">Dáta o autizme na Slovensku</h1>
-        <YearToggle years={YEARS} activeYear={year} onChange={setYear} />
+        <h1 className="dashboard__title">Poistenci s diagnózou z okruhu autizmu (F84.x)</h1>
+        <p className="dashboard__subtitle">
+          Slovensko, 2015–2025 · VšZP + Dôvera + Union · zdroj: agregované dáta zdravotných poisťovní. Diagnózy
+          F88/F89 samostatne nie sú zarátané; poistenec je v rámci jednej poisťovne rátaný bez duplicít.
+        </p>
       </header>
 
-      <KpiCards summary={summaryByYear[year]} />
+      <TabNav tabs={TABS} activeTab={activeTab} onChange={setActiveTab} />
 
-      <section className="dashboard__section">
-        <h2 className="dashboard__section-title">Výskyt podľa veku</h2>
-        <AgeChart data={ageDistributionByYear[year]} />
-      </section>
-
-      <section className="dashboard__section">
-        <h2 className="dashboard__section-title">Výskyt podľa krajov</h2>
-        <RegionChart data={regionDistributionByYear[year]} />
-      </section>
-
-      <section className="dashboard__section">
-        <h2 className="dashboard__section-title">Diagnostická štruktúra</h2>
-        <DiagnosisChart data={diagnosisStructureByYear[year]} />
-        <p className="dashboard__note">
-          Súčet percent presahuje 100 %, keďže časť osôb má viac ako jednu diagnózu.
-        </p>
-      </section>
+      <ActivePanel />
     </>
   )
 }

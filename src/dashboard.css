@@ -36,38 +36,45 @@
 }
 
 #dashboard .dashboard__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
 #dashboard .dashboard__title {
   font-size: 1.5rem;
   font-weight: 700;
+  margin: 0 0 6px;
+}
+
+#dashboard .dashboard__subtitle {
+  font-size: 0.85rem;
+  color: #6b7280;
   margin: 0;
+  max-width: 640px;
 }
 
-#dashboard .dashboard__year-toggle {
+#dashboard .dashboard__tabs {
   display: flex;
-  gap: 8px;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
 }
 
-#dashboard .dashboard__year-btn {
+#dashboard .dashboard__tab {
   border: 1px solid #d7dbe6;
   background: #fff;
   color: #4b5468;
-  padding: 6px 14px;
+  padding: 8px 16px;
   border-radius: 999px;
-  font-size: 0.9rem;
-  line-height: 1.4;
+  font-size: 0.85rem;
+  font-weight: 500;
   cursor: pointer;
+  white-space: nowrap;
   transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  /* comfortable mobile tap target */
+  min-height: 36px;
 }
 
-#dashboard .dashboard__year-btn--active {
+#dashboard .dashboard__tab--active {
   background: #1f2430;
   border-color: #1f2430;
   color: #fff;
@@ -269,4 +276,279 @@
 
 #dashboard .dashboard__chip:not(.dashboard__chip--active) .dashboard__chip-dot {
   opacity: 0.35;
+}
+
+#dashboard .dashboard__kpi-delta {
+  font-size: 0.78rem;
+  color: #8b93a7;
+  margin-top: 6px;
+}
+
+#dashboard .dashboard__note--lead {
+  margin: 0 0 14px;
+}
+
+/* Controls: selects, labels, segmented toggles — shared across tabs */
+
+#dashboard .dashboard__controls-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+#dashboard .dashboard__control-label {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+#dashboard .dashboard__select {
+  border: 1px solid #d7dbe6;
+  background: #fff;
+  color: #1f2430;
+  border-radius: 8px;
+  padding: 7px 10px;
+  font-size: 0.85rem;
+  font-family: inherit;
+  /* comfortable mobile tap target */
+  min-height: 36px;
+}
+
+#dashboard .dashboard__segmented {
+  display: inline-flex;
+  border: 1px solid #d7dbe6;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#dashboard .dashboard__segmented-btn {
+  border: none;
+  background: #fff;
+  color: #6b7280;
+  padding: 7px 14px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  min-height: 36px;
+}
+
+#dashboard .dashboard__segmented-btn--active {
+  background: #1f2430;
+  color: #fff;
+}
+
+/* Two-column layout (tilemap | rank list) — stacks on narrow/mobile screens */
+
+#dashboard .dashboard__grid-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (min-width: 700px) {
+  #dashboard .dashboard__grid-2 {
+    flex-direction: row;
+  }
+  #dashboard .dashboard__grid-2 > * {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+#dashboard .dashboard__subheading {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #6b7280;
+  margin: 0 0 10px;
+}
+
+/* Kraje: schematic region tilemap — width: 100% + 1fr columns keeps this from
+   ever overflowing its container, unlike a fixed pixel-width grid. */
+
+#dashboard .dashboard__tilemap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  width: 100%;
+}
+
+#dashboard .dashboard__tile {
+  aspect-ratio: 1.5;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  text-align: center;
+  padding: 6px;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+#dashboard .dashboard__tile--selected {
+  border-color: #1f2430;
+}
+
+#dashboard .dashboard__tile--empty {
+  visibility: hidden;
+}
+
+#dashboard .dashboard__tile-count {
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* Kraje: ranked list */
+
+#dashboard .dashboard__ranklist {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+#dashboard .dashboard__rank-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  background: none;
+  padding: 4px 0;
+  font-family: inherit;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+#dashboard .dashboard__rank-name {
+  width: 110px;
+  flex-shrink: 0;
+  font-size: 0.8rem;
+  color: #6b7280;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#dashboard .dashboard__rank-name--selected {
+  color: #1f2430;
+  font-weight: 600;
+}
+
+#dashboard .dashboard__rank-bar-bg {
+  flex: 1;
+  background: #eef0f5;
+  border-radius: 4px;
+  height: 14px;
+  overflow: hidden;
+}
+
+#dashboard .dashboard__rank-bar {
+  display: block;
+  height: 100%;
+  border-radius: 4px;
+  background: #9ec5f4;
+}
+
+#dashboard .dashboard__rank-bar--selected {
+  background: #2a78d6;
+}
+
+#dashboard .dashboard__rank-value {
+  width: 64px;
+  flex-shrink: 0;
+  text-align: right;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+/* Data tables (Poisťovne, Diagnózy) */
+
+#dashboard .dashboard__table-wrap {
+  overflow-x: auto;
+}
+
+#dashboard .dashboard__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+#dashboard .dashboard__table th,
+#dashboard .dashboard__table td {
+  text-align: right;
+  padding: 8px 10px;
+  border-bottom: 1px solid #eef0f5;
+}
+
+#dashboard .dashboard__table th:first-child,
+#dashboard .dashboard__table td:first-child {
+  text-align: left;
+}
+
+#dashboard .dashboard__table thead th {
+  color: #6b7280;
+  font-weight: 600;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+#dashboard .dashboard__table-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  margin-right: 6px;
+}
+
+#dashboard .dashboard__delta--up {
+  color: #2a78d6;
+}
+
+#dashboard .dashboard__delta--down {
+  color: #8b93a7;
+}
+
+/* Insight bullet lists */
+
+#dashboard .dashboard__insights {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#dashboard .dashboard__insights-item {
+  display: flex;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eef0f5;
+  font-size: 0.85rem;
+  color: #4b5468;
+  line-height: 1.5;
+}
+
+#dashboard .dashboard__insights-item:last-child {
+  border-bottom: none;
+}
+
+#dashboard .dashboard__insights-item strong {
+  color: #1f2430;
+  font-weight: 600;
+}
+
+#dashboard .dashboard__insights-dot {
+  color: #2a78d6;
+  flex: none;
+  line-height: 1.5;
+}
+
+#dashboard .dashboard__insights-dot::before {
+  content: '●';
+  font-size: 0.6rem;
 }
