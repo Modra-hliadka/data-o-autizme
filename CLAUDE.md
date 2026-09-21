@@ -11,6 +11,10 @@ dátami); tá bola zlúčená do tejto appky a odstránená — nový obsah z ne
 Diagnózy, per-capita metrika, prepínače počty/rast) je teraz tu, dátovo napojený
 na `/data` JSON namiesto hardcodu.
 
+Odkiaľ presne dáta pochádzajú, akú majú metodiku/limity, ako sa spracovali do
+JSON a ako ich aktualizovať o ďalší rok — to je v [README.md](README.md), nie
+tu. Tento súbor rieši len kód/architektúru appky.
+
 ## Štruktúra
 
 ```
@@ -26,11 +30,12 @@ src/
 ## Dáta — jediný zdroj pravdy
 
 Všetky dáta pochádzajú z reálnych agregovaných tabuliek poisťovní (VšZP, Dôvera,
-Union), 2015–2025. Nič sa neduplikuje do samostatného „KPI snapshotu" — hodnoty
-ako medziročný rast, 10-ročný násobok, najpočetnejšia veková skupina a pod. sa
-**počítajú za behu z týchto súborov** v komponentoch/taboch, nie z ručne
-udržiavaného sumára. (Predtým existoval `data/summary.json` +
-`ageDistribution.json` + `regionDistribution.json` s ukážkovými/zastaranými
+Union), 2015–2025 — proveniencia, metodika a limity v [README.md](README.md).
+Nič sa neduplikuje do samostatného „KPI snapshotu" — hodnoty ako medziročný
+rast, 10-ročný násobok, najpočetnejšia veková skupina a pod. sa **počítajú za
+behu z týchto súborov** v komponentoch/taboch, nie z ručne udržiavaného sumára.
+(Predtým existoval `data/summary.json` + `ageDistribution.json` +
+`regionDistribution.json` + `diagnosisStructure.json` s ukážkovými/zastaranými
 číslami, ktoré sa rozišli od reálnych dát v ostatných grafoch na tej istej
 stránke — presne to táto štruktúra odstraňuje.)
 
@@ -120,6 +125,10 @@ vekovú skupinu). Ak pridáš ďalší stacked graf s bielym stroke, over legend
 a tooltip rovnako.
 
 ## Ako pridať/rozšíriť obsah
+
+Len pridanie nového roku do existujúcich dát (bez zmeny kódu) — pozri
+[README.md](README.md), sekcia „Ako aktualizovať dáta o ďalší rok". Nižšie je
+postup pre zmeny v kóde/komponentoch.
 
 - **Nový graf v existujúcom tabe**: priprav dáta v `/data`, priamy import v
   komponente, žiadny hardcoded JS v JSX.
