@@ -24,8 +24,8 @@ export default function App() {
       <header className="dashboard__header">
         <h1 className="dashboard__title">Poistenci s diagnózou z okruhu autizmu (F84.x)</h1>
         <p className="dashboard__subtitle">
-          Slovensko, 2015–2025 · VšZP + Dôvera + Union · zdroj: agregované dáta zdravotných poisťovní. Diagnózy
-          F88/F89 samostatne nie sú zarátané; poistenec je v rámci jednej poisťovne rátaný bez duplicít.
+          Slovensko, 2015–2025 · VšZP + Dôvera + Union · zdroj: agregované dáta zdravotných poisťovní.
+          Poistenec je v rámci jednej poisťovne rátaný bez duplicít.
         </p>
       </header>
 
