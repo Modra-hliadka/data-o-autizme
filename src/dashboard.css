@@ -127,6 +127,46 @@
   margin-top: 8px;
 }
 
+#dashboard .dashboard__methodology {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid #eef0f5;
+}
+
+#dashboard .dashboard__methodology-group {
+  margin-bottom: 16px;
+}
+
+#dashboard .dashboard__methodology-heading {
+  font-size: 0.85rem;
+  color: #4b5468;
+  margin: 0 0 4px;
+}
+
+#dashboard .dashboard__methodology-list {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: #6b7280;
+}
+
+#dashboard .dashboard__methodology-list li {
+  margin-bottom: 4px;
+}
+
+#dashboard .dashboard__methodology-text {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: #6b7280;
+  margin: 0 0 8px;
+}
+
+#dashboard .dashboard__methodology a {
+  color: #1f2430;
+  text-decoration: underline;
+}
+
 #dashboard .dashboard__chart-tooltip {
   background: #fff;
   border: 1px solid #eef0f5;

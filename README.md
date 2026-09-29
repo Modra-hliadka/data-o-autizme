@@ -9,7 +9,10 @@ architektúre appky nájdeš v [CLAUDE.md](CLAUDE.md).)
 
 Základom sú **agregované tabuľky od troch zdravotných poisťovní** — VšZP,
 Dôvera, Union — s počtom poistencov s diagnózou z okruhu autizmu (F84.x),
-2015–2025. Do repa prišli ako dva Excel súbory, postupne za sebou:
+2015–2025. Poisťovne posielali údaje samostatne (jeden súbor za poisťovňu);
+tie boli zlúčené do spoločného pracovného Excelu s údajmi za všetky tri
+poisťovne vedľa seba. Do repa prišli ako dva takéto (už zlúčené) Excel
+súbory, postupne za sebou:
 
 1. **`sumar 2015-2025.xlsx`** (prvý, jednoduchší) — jeden hárok `sumar` s
    ročnými súčtami podľa poisťovne (VšZP/Dôvera/Union/Spolu) a medziročným

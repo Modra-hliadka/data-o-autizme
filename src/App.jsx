@@ -5,6 +5,7 @@ import InsurersTab from './components/InsurersTab.jsx'
 import RegionsTab from './components/RegionsTab.jsx'
 import AgeStructureChart from './components/AgeStructureChart.jsx'
 import DiagnosesTab from './components/DiagnosesTab.jsx'
+import MethodologyFooter from './components/MethodologyFooter.jsx'
 import './dashboard.css'
 
 const TABS = [
@@ -32,6 +33,8 @@ export default function App() {
       <TabNav tabs={TABS} activeTab={activeTab} onChange={setActiveTab} />
 
       <ActivePanel />
+
+      <MethodologyFooter />
     </>
   )
 }
