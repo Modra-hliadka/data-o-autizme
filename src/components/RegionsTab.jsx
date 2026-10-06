@@ -7,7 +7,7 @@ import InsightsList from './InsightsList.jsx'
 import { formatCount, formatPercent1 } from '../format.js'
 
 const { years, regions, insurers: regionByInsurer } = regionBreakdown
-const { populationByRegion } = regionPopulation
+const { populationByRegion, years: populationYears } = regionPopulation
 const INSURER_IDS = Object.keys(regionByInsurer)
 const INSURER_LABELS = { vszp: 'VšZP', dovera: 'Dôvera', union: 'Union' }
 
@@ -45,6 +45,13 @@ function regionSeries(region, insurerFilter) {
   return years.map((_, yearIndex) => regionValue(region, yearIndex, insurerFilter))
 }
 
+// Population of a region at 31.12. of the given year (ŠÚ SR), or null when there is no figure for it
+// (e.g. "Zahraničie a iné", or a year that has no population yet).
+function populationFor(region, year) {
+  const index = populationYears.indexOf(year)
+  return index === -1 ? null : populationByRegion[region]?.[index] ?? null
+}
+
 function colorFor(value, max) {
   if (!max) return SEQUENTIAL_STEPS[0]
   const t = value / max
@@ -64,7 +71,7 @@ export default function RegionsTab() {
     () =>
       regions.map((region) => {
         const count = regionValue(region, yearIndex, insurerFilter)
-        const population = populationByRegion[region]
+        const population = populationFor(region, year)
         const capita = population ? (count / population) * 10000 : null
         return { region, count, capita }
       }),
@@ -78,11 +85,13 @@ export default function RegionsTab() {
   const displayValue = (value) => (value === null || value === undefined ? '—' : metric === 'capita' ? formatPercent1(value) : formatCount(value))
 
   const selectedSeries = regionSeries(selectedRegion, insurerFilter)
-  const selectedPopulation = populationByRegion[selectedRegion]
-  const chartData = years.map((y, index) => ({
-    year: y,
-    value: metric === 'capita' && selectedPopulation ? (selectedSeries[index] / selectedPopulation) * 10000 : selectedSeries[index],
-  }))
+  const chartData = years.map((y, index) => {
+    const population = populationFor(selectedRegion, y)
+    return {
+      year: y,
+      value: metric === 'capita' ? (population ? (selectedSeries[index] / population) * 10000 : null) : selectedSeries[index],
+    }
+  })
 
   const totalByYear = (yIndex) => regions.reduce((sum, region) => sum + regionValue(region, yIndex, insurerFilter), 0)
   const shareOf = (region, yIndex) => (regionValue(region, yIndex, insurerFilter) / totalByYear(yIndex)) * 100

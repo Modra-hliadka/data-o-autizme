@@ -22,8 +22,13 @@ export default function OverviewTab() {
   const first = totalForYear(firstYear)
   const yoy = ((last - prev) / prev) * 100
   const multiplier = last / first
-  const totalPopulation = Object.values(regionPopulation.populationByRegion).reduce((a, b) => a + b, 0)
-  const perCapita = (last / totalPopulation) * 10000
+  // population of Slovakia at 31.12. of the last year = sum over the 8 regions (ŠÚ SR); null if not available yet
+  const populationIndex = regionPopulation.years.indexOf(lastYear)
+  const totalPopulation =
+    populationIndex === -1
+      ? null
+      : Object.values(regionPopulation.populationByRegion).reduce((sum, values) => sum + values[populationIndex], 0)
+  const perCapita = totalPopulation ? (last / totalPopulation) * 10000 : null
 
   const kpis = [
     {
@@ -43,8 +48,10 @@ export default function OverviewTab() {
     },
     {
       label: `Na 10 000 obyvateľov SR (${lastYear})`,
-      value: formatPercent1(perCapita),
-      delta: `odhad, populácia SR ~${formatCount(totalPopulation)}`,
+      value: perCapita === null ? '—' : formatPercent1(perCapita),
+      delta: totalPopulation
+        ? `populácia SR ${formatCount(totalPopulation)} (k 31. 12. ${lastYear})`
+        : 'populácia nie je k dispozícii',
     },
   ]
 

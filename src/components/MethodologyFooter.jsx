@@ -34,8 +34,8 @@ export default function MethodologyFooter() {
         </p>
         <p className="dashboard__methodology-text">
           Aby sa dáta dali porovnať, zlúčili sme ich do krajov a 10-ročných vekových skupín,
-          spojili a vizualizovali. Prepočet na 10 000 obyvateľov vychádza z údajov ŠÚ SR ku
-          koncu roka 2024.
+          spojili a vizualizovali. Prepočet na 10 000 obyvateľov vychádza z údajov ŠÚ SR o
+          počte obyvateľov ku koncu príslušného roka.
         </p>
       </div>
 
