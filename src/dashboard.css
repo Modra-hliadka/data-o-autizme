@@ -10,6 +10,8 @@
   max-width: 960px;
   margin: 0 auto;
   padding: 24px 16px;
+  /* hosťujúca stránka (kompasio.sk) na mobile centruje text — v dashboarde chceme zarovnanie vľavo */
+  text-align: left;
 }
 
 #dashboard *,

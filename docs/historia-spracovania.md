@@ -54,4 +54,9 @@ takže pri pridaní ďalšieho roka sa nemusia prepisovať ručne.
 
 Dashboard odkazuje na Kompasio a Modrú hliadku: kontextové pruhy pri grafoch (Poisťovne, Kraje, Veková štruktúra, Diagnózy),
 blok pre rodiča na tabe Prehľad a karty „Čítajte ďalej" pod každým tabom. Všetky adresy sú v `src/links.js`.
-Nové prvky používajú firemnú oranžovú `#d14200` a sivú `#767474`.
+
+### 6. 10. 2026 — zarovnanie textu, odkaz na graf a limit „vek a kraj spolu"
+
+Text v dashboarde je zarovnaný vľavo aj na mobile (hosťujúca stránka ho centrovala). V Hlavných zisteniach na Prehľade sa
+odkazuje na graf „vyššie" (je nad zisteniami). Do limitov v pätičke a v README pribudla veta, že vek a kraj nemáme spolu
+a pri súčasnom výbere oboch filtrov je výsledok odhad.

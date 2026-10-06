@@ -52,6 +52,12 @@ export default function MethodologyFooter() {
             Dáta zachytávajú len ľudí s diagnózou vykázanou v systéme poisťovní, nie všetkých
             ľudí s autizmom.
           </li>
+          <li>
+            <strong>
+              Vek a kraj nemáme k dispozícii spolu. Pri súčasnom výbere oboch filtrov je výsledok
+              odhad.
+            </strong>
+          </li>
         </ul>
       </div>
 

@@ -66,7 +66,7 @@ export default function OverviewTab() {
       <strong>+{formatPercent1(yoy)} %</strong>. Podrobný rozpad podľa poisťovne nájdeš v tabe „Poisťovne".
     </>,
     <>
-      Graf nižšie si vieš obmedziť súčasne podľa poisťovne, vekovej skupiny aj kraja — filtre sú pod grafom.
+      Graf vyššie si vieš obmedziť súčasne podľa poisťovne, vekovej skupiny aj kraja — filtre sú pod grafom.
     </>,
   ]
 

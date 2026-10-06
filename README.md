@@ -59,6 +59,8 @@ porovnávajú aj priamo so surovými súbormi poisťovní.
 
 - **Duplicity medzi poisťovňami.** Rodné číslo je dostupné len v rámci jednej poisťovne. Súčet za tri poisťovne preto
   nevie odstrániť osobu, ktorá v sledovanom období zmenila poisťovňu.
+- **Vek a kraj spolu.** Vek a kraj máme len v dvoch oddelených tabuľkách, nie spolu. Pri súčasnom výbere oboch
+  filtrov v grafe je výsledok odhad (predpoklad nezávislosti veku a kraja).
 - **VšZP 2019:** súčet krajov je 10 156, súčet vekových pásiem 10 148 (rozdiel 8 osôb, nepresnosť v súbore VšZP).
 - **„Zahraničie a iné"** je zberná kategória poistencov bez priradeného slovenského kraja.
 - **Populácia krajov** je podľa ŠÚ SR k 31. 12. príslušného roka. V údajoch ŠÚ SR je medzi rokmi 2020 a 2021 skok
