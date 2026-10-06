@@ -132,7 +132,10 @@ export default function AgeStructureChart() {
   return (
     <>
       <section className="dashboard__section">
-        <h2 className="dashboard__section-title">Vývoj vekovej štruktúry pacientov 2015 – 2025</h2>
+        <h2 className="dashboard__section-title">
+          Vývoj vekovej štruktúry pacientov {ageBreakdown.years[0]} –{' '}
+          {ageBreakdown.years[ageBreakdown.years.length - 1]}
+        </h2>
         <div className="dashboard__controls-row">
           <label className="dashboard__control-label" htmlFor="age-insurer-select">
             Poisťovňa:

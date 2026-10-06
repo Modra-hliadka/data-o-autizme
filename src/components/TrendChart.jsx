@@ -76,7 +76,9 @@ export default function TrendChart({ years, insurers }) {
 
   return (
     <section className="dashboard__section dashboard__section--main">
-      <h2 className="dashboard__section-title">Autizmus na Slovensku 2015 – 2025</h2>
+      <h2 className="dashboard__section-title">
+        Autizmus na Slovensku {years[0]} – {years[years.length - 1]}
+      </h2>
       <div className="dashboard__chart">
         <ResponsiveContainer width="100%" height={340}>
           <BarChart data={chartData} margin={{ top: 8, right: 16, left: 0, bottom: 8 }}>

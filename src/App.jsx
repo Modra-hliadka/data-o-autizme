@@ -6,7 +6,10 @@ import RegionsTab from './components/RegionsTab.jsx'
 import AgeStructureChart from './components/AgeStructureChart.jsx'
 import DiagnosesTab from './components/DiagnosesTab.jsx'
 import MethodologyFooter from './components/MethodologyFooter.jsx'
+import insuranceHistory from '../data/insuranceHistory.json'
 import './dashboard.css'
+
+const { years } = insuranceHistory
 
 const TABS = [
   { id: 'prehlad', label: 'Prehľad', Component: OverviewTab },
@@ -25,7 +28,7 @@ export default function App() {
       <header className="dashboard__header">
         <h1 className="dashboard__title">Poistenci s diagnózou z okruhu autizmu (F84.x)</h1>
         <p className="dashboard__subtitle">
-          Slovensko, 2015–2025 · VšZP + Dôvera + Union · zdroj: agregované dáta zdravotných poisťovní.
+          Slovensko, {years[0]}–{years[years.length - 1]} · VšZP + Dôvera + Union · zdroj: agregované dáta zdravotných poisťovní.
           Poistenec je v rámci jednej poisťovne rátaný bez duplicít.
         </p>
       </header>
