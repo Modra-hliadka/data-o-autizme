@@ -593,3 +593,165 @@
   content: '●';
   font-size: 0.6rem;
 }
+
+/* Kontextové bloky, tlačidlá a „Čítajte ďalej" — firemné farby: oranžová #d14200, sivá #767474.
+   Biela na #d14200 aj #d14200 na bielej splnajú kontrast WCAG AA (4,6 : 1). */
+
+#dashboard .dashboard__button {
+  display: inline-flex;
+  align-items: center;
+  background: #d14200;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 9px 16px;
+  border-radius: 999px;
+  min-height: 40px;
+  transition: background 0.15s ease;
+}
+
+#dashboard .dashboard__button:hover {
+  background: #a83500;
+}
+
+#dashboard .dashboard__context {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 16px;
+  color: #1f2430;
+}
+
+#dashboard .dashboard__context-icon {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #d14200;
+  color: #fff;
+}
+
+#dashboard .dashboard__context-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+#dashboard .dashboard__context-text {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+#dashboard .dashboard__context-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+#dashboard .dashboard__parent {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-top: 40px;
+  padding: 20px;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  text-align: left;
+}
+
+#dashboard .dashboard__parent-icon {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #d14200;
+  color: #fff;
+}
+
+#dashboard .dashboard__parent-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 0;
+}
+
+#dashboard .dashboard__parent-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0;
+  color: #1f2430;
+}
+
+#dashboard .dashboard__parent-text {
+  margin: 0 0 4px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #767474;
+}
+
+#dashboard .dashboard__readmore {
+  margin-top: 32px;
+  text-align: left;
+}
+
+#dashboard .dashboard__readmore-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+#dashboard .dashboard__readmore-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: #d14200;
+  border-top: 6px solid #1f2430;
+  border-radius: 12px;
+  padding: 16px;
+  text-decoration: none;
+  color: #fff;
+  transition: background 0.15s ease;
+}
+
+#dashboard .dashboard__readmore-card:hover {
+  background: #a83500;
+}
+
+#dashboard .dashboard__readmore-title {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+#dashboard .dashboard__readmore-text {
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+#dashboard .dashboard__readmore-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+#dashboard .dashboard__arrow-circle {
+  flex: none;
+  width: 32px;
+  height: 32px;
+}

@@ -3,6 +3,8 @@ import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsi
 import ageBreakdown from '../../data/ageBreakdown.json'
 import SegmentedControl from './SegmentedControl.jsx'
 import InsightsList from './InsightsList.jsx'
+import ContextLink from './ContextLink.jsx'
+import { LINKS } from '../links.js'
 import { formatCount, formatPercent1 } from '../format.js'
 
 // 10 raw age buckets are too many distinct colors for one stacked chart to carry
@@ -186,6 +188,14 @@ export default function AgeStructureChart() {
       </section>
 
       <InsightsList title="Kľúčové zistenia — vek" items={INSIGHTS} />
+      <ContextLink
+        icon="bulb"
+        text="Hľadáte pomoc pre dieťa? Pozrite si služby a pracoviská."
+        links={[
+          { href: LINKS.earlyInterventionList, label: 'Včasná intervencia' },
+          { href: LINKS.diagnosticsList, label: 'Kde sa robí diagnostika' },
+        ]}
+      />
     </>
   )
 }

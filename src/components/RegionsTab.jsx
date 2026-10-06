@@ -4,6 +4,8 @@ import regionBreakdown from '../../data/regionBreakdown.json'
 import regionPopulation from '../../data/regionPopulation.json'
 import SegmentedControl from './SegmentedControl.jsx'
 import InsightsList from './InsightsList.jsx'
+import ContextLink from './ContextLink.jsx'
+import { LINKS } from '../links.js'
 import { formatCount, formatPercent1 } from '../format.js'
 
 const { years, regions, insurers: regionByInsurer } = regionBreakdown
@@ -243,6 +245,11 @@ export default function RegionsTab() {
       </section>
 
       <InsightsList title="Kľúčové zistenia — kraje" items={insights} />
+      <ContextLink
+        icon="pin"
+        text="Hľadáte podporu vo svojom okolí? Na mape Kompasia nájdete poskytovateľov služieb podľa vlastných preferencií."
+        links={[{ href: LINKS.supportMap, label: 'Mapa a miesta podpory' }]}
+      />
     </>
   )
 }

@@ -126,6 +126,14 @@ explicitným `payload` (farba z `fill`) + `formatter` pre legendu, a vlastným
 vekovú skupinu). Ak pridáš ďalší stacked graf s bielym stroke, over legendu
 a tooltip rovnako.
 
+## Odkazy na súvisiaci obsah
+
+Adresy odkazov na Kompasio a Modrú hliadku sú na jednom mieste v `src/links.js`.
+`ContextLink.jsx` je pruh s piktogramom, vetou a tlačidlami pod grafom (každý tab má jeden),
+`ParentGuide.jsx` je blok pre rodiča (len na tabe Prehľad) a `ReadMore.jsx` sú oranžové karty
+„Čítajte ďalej" pod každým tabom. Farby: oranžová `#d14200`, sivá `#767474` (obe majú kontrast
+WCAG AA na bielom). Klikateľné karty majú šípku v kruhu (`ArrowCircle.jsx`).
+
 ## Ako pridať/rozšíriť obsah
 
 Len pridanie nového roku do existujúcich dát (bez zmeny kódu) — pozri

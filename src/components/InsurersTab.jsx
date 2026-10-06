@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 import insuranceHistory from '../../data/insuranceHistory.json'
 import SegmentedControl from './SegmentedControl.jsx'
+import ContextLink from './ContextLink.jsx'
+import { LINKS } from '../links.js'
 import { formatCount, formatPercent1 } from '../format.js'
 
 const { years, insurers } = insuranceHistory
@@ -108,6 +110,11 @@ export default function InsurersTab() {
           </table>
         </div>
       </section>
+      <ContextLink
+        icon="pin"
+        text="Hľadáte pracovisko, kde vás môžu diagnostikovať vo vašom kraji?"
+        links={[{ href: LINKS.diagnosticsList, label: 'Zoznam pracovísk' }]}
+      />
     </>
   )
 }

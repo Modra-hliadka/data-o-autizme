@@ -5,6 +5,8 @@ import InsurersTab from './components/InsurersTab.jsx'
 import RegionsTab from './components/RegionsTab.jsx'
 import AgeStructureChart from './components/AgeStructureChart.jsx'
 import DiagnosesTab from './components/DiagnosesTab.jsx'
+import ParentGuide from './components/ParentGuide.jsx'
+import ReadMore from './components/ReadMore.jsx'
 import MethodologyFooter from './components/MethodologyFooter.jsx'
 import insuranceHistory from '../data/insuranceHistory.json'
 import './dashboard.css'
@@ -36,6 +38,10 @@ export default function App() {
       <TabNav tabs={TABS} activeTab={activeTab} onChange={setActiveTab} />
 
       <ActivePanel />
+
+      {activeTab === 'prehlad' && <ParentGuide />}
+
+      <ReadMore />
 
       <MethodologyFooter />
     </>

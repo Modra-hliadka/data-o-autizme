@@ -47,3 +47,11 @@ Dopad: KPI „na 10 000 obyvateľov SR" (2025): 64,6 → 64,8 (populácia SR k 3
 
 Roky v podtitule stránky a v nadpisoch grafov (Autizmus na Slovensku, Vývoj vekovej štruktúry) sa berú automaticky z dát,
 takže pri pridaní ďalšieho roka sa nemusia prepisovať ručne.
+
+## Zmeny v dashboarde
+
+### 6. 10. 2026 — odkazy na súvisiaci obsah
+
+Dashboard odkazuje na Kompasio a Modrú hliadku: kontextové pruhy pri grafoch (Poisťovne, Kraje, Veková štruktúra, Diagnózy),
+blok pre rodiča na tabe Prehľad a karty „Čítajte ďalej" pod každým tabom. Všetky adresy sú v `src/links.js`.
+Nové prvky používajú firemnú oranžovú `#d14200` a sivú `#767474`.

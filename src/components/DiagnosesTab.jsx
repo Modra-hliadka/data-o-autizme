@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 import diagnosisBreakdown from '../../data/diagnosisBreakdown.json'
 import InsightsList from './InsightsList.jsx'
+import ContextLink from './ContextLink.jsx'
+import { LINKS } from '../links.js'
 import { formatPercent1 } from '../format.js'
 
 const { years, diagnoses } = diagnosisBreakdown
@@ -157,6 +159,11 @@ export default function DiagnosesTab() {
       </section>
 
       <InsightsList title="Kľúčové zistenia — diagnózy" items={insights} />
+      <ContextLink
+        icon="bulb"
+        text="Ako sa autizmus diagnostikuje a čo diagnóza znamená pre rodinu?"
+        links={[{ href: LINKS.diagnosticsGuide, label: 'Diagnostika autizmu: prečo, kde, kedy, ako a kto' }]}
+      />
     </>
   )
 }
