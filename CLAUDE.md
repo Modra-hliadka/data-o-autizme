@@ -47,9 +47,11 @@ stránke — presne to táto štruktúra odstraňuje.)
   — nemáme reálnu jointovú distribúciu vek×kraj (pozri nižšie, TrendChart).
 - `data/diagnosisBreakdown.json` — `{ years, diagnoses: [{ id, code, label, percentByYear, countByYear }] }`,
   8 podkódov F84.x, zoradené podľa podielu v poslednom roku (fixné poradie pre farby).
-- `data/regionPopulation.json` — `{ source, populationByRegion: { "<kraj>": počet } }`,
+- `data/regionPopulation.json` — `{ source, years: [...], populationByRegion: { "<kraj>": [...] } }`,
+  `populationByRegion[kraj][i]` zodpovedá `years[i]` (populácia k 31. 12. daného roka),
   bez záznamu pre „Zahraničie a iné" (nemá zmysel počítať naň per-capita).
-  Zdroj: Štatistický úrad SR, koniec roka 2024 — orientačné.
+  Zdroj: Štatistický úrad SR, DATAcube (tabuľka om7001rr). Rok bez populácie sa v appke
+  zobrazí ako „—" (nie ako zlé číslo).
 - Komponenty dáta importujú priamo (`import x from '../data/x.json'`) — žiadny
   fetch, žiadny API layer.
 

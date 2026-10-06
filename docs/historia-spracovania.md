@@ -32,6 +32,17 @@ Poznámky:
 - VšZP 2019: súčet krajov je 10 156, súčet vekových pásiem 10 148 (rozdiel 8 osôb, nepresnosť v súbore VšZP).
 - Dôvera: používajú sa pôvodne dodané dáta (2024: 9 409, 2025: 11 111). Novšia dodávka má 9 622 a 11 290 a nepoužila sa.
 
+### 6. 10. 2026 — populácia krajov po rokoch
+
+Dashboard predtým používal jednu populáciu (k 31. 12. 2024) pre všetky roky, takže „na 10 000 obyvateľov" bolo pri
+starších rokoch skreslené (napríklad Bratislavský kraj v 2015: 17,8 namiesto 20,7). `regionPopulation.json` teraz obsahuje
+populáciu každého kraja pre každý rok 2015–2025 (ŠÚ SR, DATAcube, tabuľka om7001rr, stav k 31. 12.) a `RegionsTab` aj KPI
+na Prehľade berú populáciu príslušného roka. Rok bez populácie sa zobrazí ako „—".
+
+Dopad: KPI „na 10 000 obyvateľov SR" (2025): 64,6 → 64,8 (populácia SR k 31. 12. 2025: 5 409 407). Pätička ráta s populáciou
+„ku koncu príslušného roka". V údajoch ŠÚ SR je medzi rokmi 2020 a 2021 skok v počte obyvateľov niektorých krajov
+(Bratislavský +6,9 %), čo sa môže prejaviť v prepočte „na 10 000" v roku 2021.
+
 ### 6. 10. 2026 — roky v nadpisoch
 
 Roky v podtitule stránky a v nadpisoch grafov (Autizmus na Slovensku, Vývoj vekovej štruktúry) sa berú automaticky z dát,

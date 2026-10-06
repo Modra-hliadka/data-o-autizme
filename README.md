@@ -14,7 +14,7 @@ používajú a ako ich aktualizovať o ďalší rok. (Technickú dokumentáciu k
 - **Diagnostická štruktúra** (F84 podkódy) pochádza z Excelu `autizmus_veková_a_diagnosticka_struktura_2015_2025`
   (hárok „Štruktúra diagnóz") a bola overená proti surovým súborom poisťovní.
 - **Populácia krajov** (pre prepočet na 10 000 obyvateľov): Štatistický úrad SR, DATAcube (tabuľka om7001rr), stav
-  k 31. 12. 2024.
+  k 31. 12. príslušného roka (2015–2025).
 
 ## Metodika zberu
 
@@ -61,8 +61,9 @@ porovnávajú aj priamo so surovými súbormi poisťovní.
   nevie odstrániť osobu, ktorá v sledovanom období zmenila poisťovňu.
 - **VšZP 2019:** súčet krajov je 10 156, súčet vekových pásiem 10 148 (rozdiel 8 osôb, nepresnosť v súbore VšZP).
 - **„Zahraničie a iné"** je zberná kategória poistencov bez priradeného slovenského kraja.
-- **Populácia krajov** je jeden odhad k 31. 12. 2024 použitý pre všetky roky, takže „na 10 000 obyvateľov" je
-  orientačné.
+- **Populácia krajov** je podľa ŠÚ SR k 31. 12. príslušného roka. V údajoch ŠÚ SR je medzi rokmi 2020 a 2021 skok
+  v počte obyvateľov niektorých krajov (Bratislavský +6,9 %, Banskobystrický −3,4 %), preto sa „na 10 000 obyvateľov"
+  v roku 2021 môže zmeniť aj bez zmeny počtu poistencov.
 - **Diagnózy** môžu dokopy presiahnuť 100 %, lebo poistenec môže mať viac diagnóz naraz (v priemere okolo 1,25–1,28
   na osobu).
 - **Dôvera:** pracovali sme s pôvodne dodanými dátami (2024: 9 409, 2025: 11 111). Novšia dodávka má 9 622 a 11 290
@@ -80,7 +81,7 @@ porovnávajú aj priamo so surovými súbormi poisťovní.
 | `data/regionBreakdown.json` | rok × poisťovňa × kraj | `TrendChart` | filter „Kraje" |
 | | | `RegionsTab` (Kraje) | schematická mriežka, rebríček, drill-down graf pre vybraný kraj |
 | `data/diagnosisBreakdown.json` | rok × F84 podkód → % aj počet | `DiagnosesTab` (Diagnózy) | viacročný čiarový graf 8 podkódov + tabuľka zmien |
-| `data/regionPopulation.json` | populácia krajov (ŠÚ SR, 31. 12. 2024) | `RegionsTab` | prepínač „na 10 000 obyvateľov" |
+| `data/regionPopulation.json` | populácia krajov po rokoch (ŠÚ SR, k 31. 12.) | `RegionsTab` | prepínač „na 10 000 obyvateľov" |
 | | | `OverviewTab` | KPI karta „na 10 000 obyvateľov SR" |
 
 Insighty („Kľúčové zistenia" pod grafmi) **nie sú nikde uložené ako text s číslami** — počítajú sa za behu z týchto dát
@@ -103,8 +104,9 @@ Insighty („Kľúčové zistenia" pod grafmi) **nie sú nikde uložené ako tex
      diagnóz.
 
    KPI karty, grafy, tabuľky, nadpisy s rokmi aj insighty sa prepočítajú samé, nič iné meniť netreba.
-5. **Populácia:** ak je novší odhad ŠÚ SR (DATAcube, tabuľka om7001rr), aktualizuj `regionPopulation.json` (jedna
-   hodnota na kraj) a rok v texte pätičky (`src/components/MethodologyFooter.jsx`, „ku koncu roka 2024").
+5. **Populácia:** pridaj populáciu za nový rok z DATAcube ŠÚ SR (tabuľka om7001rr, stav k 31. 12.) do
+   `regionPopulation.json`: rok do `years` a hodnotu na koniec poľa pre každý kraj. Kým populácia za nový rok nie je,
+   zobrazí sa „na 10 000 obyvateľov" pre ten rok ako „—".
 6. **Over lokálne pred pushom:** `npm install && npm run build && npm run dev`, prejdi všetky taby a skontroluj, že sa
    nový rok objavil v grafoch a že KPI a insighty dávajú zmysel. Build musí prejsť bez chýb.
 
